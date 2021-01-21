@@ -8,3 +8,4 @@ export * from './bluetooth/bluetooth.plugin';
 export * from './system-commands/system-commands.plugin';
 export * from './kill-apps/kill-apps.plugin';
 export * from './music/music.plugin';
+export * from './emoji/emoji.plugin';

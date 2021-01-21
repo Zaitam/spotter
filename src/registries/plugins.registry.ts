@@ -44,6 +44,11 @@ export class PluginsRegistry implements SpotterPluginsRegistry {
   }
 
   public async findOptionsForQuery(query: string, callback: (options: SpotterOption[]) => void) {
+    if (!query?.length) {
+      callback([]);
+      return;
+    }
+
     Object.entries(this.plugins).forEach(async ([pluginIdentifier, plugin]) => {
       if (!plugin.onQuery) {
         return;

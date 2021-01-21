@@ -20,6 +20,7 @@ import {
   SystemCommandsPlugin,
   KillAppsPlugin,
   MusicPlugin,
+  EmojiPlugin,
 } from '../plugins';
 
 const plugins = [
@@ -32,7 +33,8 @@ const plugins = [
   TimerPlugin,
   SystemCommandsPlugin,
   KillAppsPlugin,
-  MusicPlugin
+  MusicPlugin,
+  EmojiPlugin,
 ];
 
 export const App: FC<{}> = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Image, StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { SpotterOption, SpotterOptionBaseImage } from '../core';
+import { isEmojiString, SpotterOption, SpotterOptionBaseImage } from '../core';
 import { IconImageNative } from '../native';
 import { useTheme } from './theme.provider';
 
@@ -98,9 +98,11 @@ export const OptionIcon = ({ icon }: { icon: SpotterOptionBaseImage }) => {
       ? <View style={styles.imageContainer}>
         {typeof icon === 'string' && icon.endsWith('.app')
           ? <IconImageNative style={{ width: 25, height: 25 }} source={icon}></IconImageNative>
-          : typeof icon === 'number'
-            ? <Image style={{ width: 22, height: 22 }} source={icon}></Image>
-            : null
+          : typeof icon === 'string' && isEmojiString(icon)
+            ? <Text style={{ fontSize: 22 }}>{icon}</Text>
+            : typeof icon === 'number'
+              ? <Image style={{ width: 22, height: 22 }} source={icon}></Image>
+              : null
         }
       </View>
       : null
